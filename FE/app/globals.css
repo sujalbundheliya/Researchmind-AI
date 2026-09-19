@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/*
+  ResearchMind · Clay palette
+  Warm, editorial, scholarly. Semantic tokens are exposed as RGB triplets so
+  Tailwind can compose them with opacity modifiers: rgb(var(--canvas) / 0.5).
+  Light mode is the default; `.dark` on <html> swaps every token.
+*/
+:root {
+  /* canvas = page background, surface = cards/panels, surface-2 = nested/hover surfaces */
+  --canvas:    255 255 255; /* Pure white #FFFFFF */
+  --surface:   249 250 251; /* Slate-50  #F9FAFB */
+  --surface-2: 241 245 249; /* Slate-100 #F1F5F9 */
+
+  /* text */
+  --ink:       15 23 42;    /* Slate-900 #0F172A — crisp, modern near-black */
+  --ink-muted: 100 116 139; /* Slate-500 #64748B — secondary text */
+  --ink-subtle:148 163 184; /* Slate-400 #94A3B8 — tertiary / placeholder */
+
+  /* borders */
+  --line:      226 232 240; /* Slate-200 #E2E8F0 — clean neutral border */
+  --line-soft: 241 245 249; /* Slate-100 #F1F5F9 — very subtle divider */
+
+  /* brand accents (constant across themes) */
+  --clay:        205 93  63;  /* #CD5D3F — slightly deeper terracotta, richer on white */
+  --clay-hover:  178 70  42;  /* #B2462A — pressed/hover state */
+  --clay-tint:   255 247 242; /* #FFF7F2 — accent wash bg */
+  --clay-soft:   254 235 225; /* #FEEBD1 — soft highlight */
+  --ochre:       217 147 36;  /* #D99324 — secondary accent */
+  --espresso:    15 23 42;    /* #0F172A — reused for sidebar */
+  --cream:       249 250 251; /* #F9FAFB */
+
+  /* semantic status */
+  --success: 22 163 74;   /* #16A34A */
+  --warning: 217 147 36;  /* #D99324 */
+  --danger:  220 38  38;  /* #DC2626 */
+  --info:    37 99  235;  /* #2563EB */
+}
+
+.dark {
+  --canvas:    43 38 34;    /* Espresso #2B2622 */
+  --surface:   54 47 42;    /* #36302A — raised card surface */
+  --surface-2: 68 61 54;    /* #443D36 — nested / hover surface */
+
+  --ink:       245 239 231; /* Cream #F5EFE7 — primary text */
+  --ink-muted: 201 188 168; /* Neutral 200 #C9BCA8 — secondary text */
+  --ink-subtle:138 127 118; /* Stone #8A7F76 — tertiary / placeholder */
+
+  --line:        92 83 75;   /* Neutral 600 #5C534B */
+  --line-soft:   68 61 54;   /* #443D36 */
+
+  --clay:        217 119 87; /* #D97757 — stays vivid on dark */
+  --clay-hover:  232 155 124;/* #E89B7C — lighten on hover for contrast */
+  --clay-tint:   58 45 38;   /* dark-tinted accent wash */
+  --clay-soft:   90 56 44;   /* dark-tinted accent 100 */
+  --ochre:       224 160 60; /* #E0A03C */
+  --espresso:    43 38 34;
+  --cream:       245 239 231;
+
+  --success: 75 156 111;
+  --warning: 224 160 60;
+  --danger:  214 99 74;
+  --info:    94 150 189;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light;
+}
+html.dark {
+  color-scheme: dark;
+}
+
+body {
+  background-color: rgb(var(--canvas));
+  color: rgb(var(--ink));
+}
+
+@keyframes indeterminate-bar {
+  0%   { transform: translateX(-100%); width: 40%; }
+  50%  { transform: translateX(120%);  width: 55%; }
+  100% { transform: translateX(280%);  width: 40%; }
+}
+
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(3px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/*
+  ── Scrollbars ─────────────────────────────────────────────────────────────
+  One standard scrollbar everywhere: thin, rounded, transparent track, thumb
+  themed with semantic tokens (soft at rest, firmer on hover). Applied globally
+  so every overflow container — panels, modals, lists, the page itself — matches
+  in both light and dark. The 2px transparent border + background-clip keeps the
+  visible thumb slim inside the 10px track.
+
+  WebKit/Blink (Chrome, Edge, Safari) get the rounded pseudo-element styling;
+  Firefox — which ignores ::-webkit-scrollbar — gets the standard properties via
+  @supports so the two never conflict (setting scrollbar-width in Blink would
+  otherwise disable the rounded webkit styling).
+*/
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: rgb(var(--ink-subtle) / 0.45);
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(var(--ink-subtle) / 0.75);
+}
+*::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(var(--ink-subtle) / 0.5) transparent;
+  }
+}
+
+/* Opt-out utility for the rare surface that should hide its scrollbar entirely. */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}

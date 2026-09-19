@@ -1,0 +1,14 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t3 d3">
+  <title id="t3">ResearchMind app icon</title>
+  <desc id="d3">ResearchMind app icon: the two-hemisphere brain-and-pages mark in cream and ochre on a rounded espresso tile.</desc>
+  <rect x="0" y="0" width="512" height="512" rx="114" fill="#2B2622"/>
+  <g transform="translate(108,150) scale(2.12)">
+    <path d="M70 20 C50 6,22 8,16 30 C2 34,2 56,14 62 C8 80,26 92,42 84 C50 96,70 94,70 78 Z" fill="none" stroke="#F5EFE7" stroke-width="6" stroke-linejoin="round"/>
+    <path d="M70 20 C90 6,118 8,124 30 C138 34,138 56,126 62 C132 80,114 92,98 84 C90 96,70 94,70 78 Z" fill="none" stroke="#F5EFE7" stroke-width="6" stroke-linejoin="round"/>
+    <line x1="70" y1="20" x2="70" y2="84" stroke="#F5EFE7" stroke-width="6" stroke-linecap="round"/>
+    <line x1="26" y1="41" x2="58" y2="41" stroke="#D97757" stroke-width="6" stroke-linecap="round"/>
+    <line x1="24" y1="56" x2="58" y2="56" stroke="#D97757" stroke-width="6" stroke-linecap="round"/>
+    <line x1="82" y1="41" x2="114" y2="41" stroke="#E0A03C" stroke-width="6" stroke-linecap="round"/>
+    <line x1="82" y1="56" x2="114" y2="56" stroke="#E0A03C" stroke-width="6" stroke-linecap="round"/>
+  </g>
+</svg>

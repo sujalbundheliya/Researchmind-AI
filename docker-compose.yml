@@ -1,0 +1,37 @@
+services:
+  ai:
+    build: ./AI
+    env_file: ./AI/.env
+    ports:
+      # 8011 on the host: 8010 is often taken by the HIRA dev uvicorn.
+      # In-cluster traffic (be -> ai) uses http://ai:8000 and is unaffected.
+      - "8011:8000"
+    volumes:
+      - uploads:/app/uploads
+
+  be:
+    build: ./BE
+    env_file: ./BE/.env
+    environment:
+      - FASTAPI_URL=http://ai:8000
+    ports:
+      - "5010:5000"
+    # Start order only — the backend does not block on the AI service being ready.
+    # Uploads sent during the AI model warmup are retried in triggerIngest.
+    depends_on:
+      - ai
+    volumes:
+      - uploads:/app/uploads
+
+  fe:
+    build:
+      context: ./FE
+      args:
+        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:5010/api}
+    ports:
+      - "3010:3000"
+    depends_on:
+      - be
+
+volumes:
+  uploads:

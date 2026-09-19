@@ -1,0 +1,52 @@
+# Tooling config for the AI (FastAPI) service.
+# Not a packaging manifest — dependencies stay in requirements.txt, which the
+# Dockerfile installs. This file exists so `ruff` behaves identically for every
+# developer and in CI.
+
+[tool.ruff]
+target-version = "py311"   # matches AI/Dockerfile (python:3.11-slim)
+line-length = 100
+extend-exclude = ["__pycache__"]
+
+[tool.ruff.lint]
+select = [
+    "E",    # pycodestyle errors      (PEP 8)
+    "W",    # pycodestyle warnings    (PEP 8)
+    "F",    # pyflakes — unused imports/vars, undefined names
+    "I",    # isort — import ordering
+    "UP",   # pyupgrade — modern syntax for the target version
+    "B",    # flake8-bugbear — likely bugs
+    "C4",   # flake8-comprehensions
+    "SIM",  # flake8-simplify
+    "RET",  # flake8-return
+    "PIE",  # flake8-pie — misc. dead/duplicated constructs
+]
+ignore = [
+    # Line length is enforced by `ruff format`, not the linter. The service is
+    # full of long single-line LLM prompt strings: an AST pass over this package
+    # found 51 of 52 over-length lines were string literals, and wrapping those
+    # would edit prompt text rather than improve layout. The formatter never
+    # splits string literals, so it fixes long *code* lines and leaves prompts
+    # intact — which is exactly the behaviour we want.
+    "E501",
+
+    # Style rules that fight this codebase's deliberate, more readable idioms.
+    # Each was reviewed at every call site before being turned off:
+    #
+    # RET504 (assignment before return) fires on text-transformation pipelines
+    #   like `text = strip(text); text = collapse(text); return text`
+    #   (prompt_guard.py, drafting.py). Inlining only the final step makes the
+    #   pipeline read inconsistently, and the named result documents a
+    #   multi-line call's output (embedder.py).
+    # SIM108 (ternary instead of if/else) fires once, on a branch whose comment
+    #   explains why table chunks must not be split (chunker.py). A ternary
+    #   would strand that comment.
+    "RET504",
+    "SIM108",
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["app"]
+
+[tool.ruff.format]
+quote-style = "double"

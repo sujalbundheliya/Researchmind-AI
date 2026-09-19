@@ -1,0 +1,42 @@
+# ── Dependencies ────────────────────────────────────────────────
+node_modules/
+
+# ── Build output / caches ───────────────────────────────────────
+.next/
+out/
+dist/
+build/
+*.tsbuildinfo
+.eslintcache
+
+# ── Python ──────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.ruff_cache/
+.pytest_cache/
+.mypy_cache/
+
+# ── Secrets ─────────────────────────────────────────────────────
+# Real values are never committed. Copy the .example files and fill them in:
+#   cp AI/.env.example AI/.env
+#   cp BE/.env.example BE/.env
+#   cp FE/.env.example.local FE/.env.local
+.env
+.env.local
+.env.*.local
+!.env.example
+!.env.example.local
+
+# ── Runtime data ────────────────────────────────────────────────
+uploads/
+*.log
+
+# ── OS / editor ─────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/

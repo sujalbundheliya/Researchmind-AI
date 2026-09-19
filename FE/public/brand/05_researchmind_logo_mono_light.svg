@@ -1,0 +1,17 @@
+<svg width="520" height="140" viewBox="0 0 520 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t5b d5b">
+  <title id="t5b">ResearchMind monochrome (light on dark)</title>
+  <desc id="d5b">ResearchMind logo in a single ink colour, light on dark, for dark-mode UI and dark backgrounds.</desc>
+  <g transform="translate(22,47) scale(0.66)" fill="none" stroke="#F5EFE7" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M70 20 C50 6,22 8,16 30 C2 34,2 56,14 62 C8 80,26 92,42 84 C50 96,70 94,70 78 Z"/>
+    <path d="M70 20 C90 6,118 8,124 30 C138 34,138 56,126 62 C132 80,114 92,98 84 C90 96,70 94,70 78 Z"/>
+    <line x1="70" y1="20" x2="70" y2="84"/>
+    <line x1="26" y1="40" x2="58" y2="40"/>
+    <line x1="22" y1="54" x2="58" y2="54"/>
+    <line x1="30" y1="68" x2="58" y2="68"/>
+    <line x1="82" y1="40" x2="114" y2="40"/>
+    <line x1="82" y1="54" x2="118" y2="54"/>
+    <line x1="82" y1="68" x2="110" y2="68"/>
+  </g>
+  <text x="135" y="78" font-family="Georgia, 'Times New Roman', serif" font-size="44" font-weight="400" fill="#F5EFE7">Research<tspan font-weight="700">Mind</tspan></text>
+  <text x="138" y="100" font-family="Georgia, 'Times New Roman', serif" font-size="12" letter-spacing="3.6" fill="#F5EFE7">AI RESEARCH WORKSPACE</text>
+</svg>

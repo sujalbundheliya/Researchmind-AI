@@ -1,0 +1,10 @@
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t4 d4">
+  <title id="t4">ResearchMind favicon</title>
+  <desc id="d4">ResearchMind favicon: a simplified two-hemisphere brain mark in cream on an espresso rounded tile.</desc>
+  <rect x="0" y="0" width="32" height="32" rx="7" fill="#2B2622"/>
+  <g transform="translate(4.2,6.3) scale(0.165)">
+    <path d="M70 20 C50 6,22 8,16 30 C2 34,2 56,14 62 C8 80,26 92,42 84 C50 96,70 94,70 78 Z" fill="none" stroke="#F5EFE7" stroke-width="11" stroke-linejoin="round"/>
+    <path d="M70 20 C90 6,118 8,124 30 C138 34,138 56,126 62 C132 80,114 92,98 84 C90 96,70 94,70 78 Z" fill="none" stroke="#F5EFE7" stroke-width="11" stroke-linejoin="round"/>
+    <line x1="70" y1="20" x2="70" y2="84" stroke="#E0A03C" stroke-width="11" stroke-linecap="round"/>
+  </g>
+</svg>
